@@ -3,7 +3,7 @@ package com.today.event.consumer;
 import com.github.dapeng.user.scala.events.ActivedEvent;
 import com.github.dapeng.user.scala.events.BlackedEvent;
 import com.github.dapeng.user.scala.events.RegisteredEvent;
-import com.today.eventbus.KafkaListener;
+import com.today.eventbus.annotation.KafkaListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,20 +15,19 @@ import org.slf4j.LoggerFactory;
 
 public class EventConsumer {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
-
-    @KafkaListener(groupId = "eventConsumer", topic = "user_1.0.0_event",
+    @KafkaListener(groupId = "eventConsumer", topic = "user_1.0.0_event",kafkaHostKey="kafka.consumer.host",
             serializer = "com.github.dapeng.user.scala.events.serializer.RegisteredEventSerializer")
     public void subscribeRegisteredEvent(RegisteredEvent event){
         LOGGER.info("Subscribed RegisteredEvent ==> {}",event.toString());
     }
 
-    @KafkaListener(groupId = "eventConsumer", topic = "user_1.0.0_event",
+    @KafkaListener(groupId = "eventConsumer", topic = "user_1.0.0_event",kafkaHostKey="kafka.consumer.host",
             serializer = "com.github.dapeng.user.scala.events.serializer.ActivedEventSerializer")
     public void subscribeActivedEvent(ActivedEvent event){
         LOGGER.info("Subscribed RegisteredEvent ==> {}",event.toString());
     }
 
-    @KafkaListener(groupId = "eventConsumer", topic = "user_1.0.0_event",
+    @KafkaListener(groupId = "eventConsumer", topic = "user_1.0.0_event",kafkaHostKey="kafka.consumer.host",
             serializer = "com.github.dapeng.user.scala.events.serializer.BlackedEventSerializer")
     public void subscribeBlackedEvent(BlackedEvent event){
         LOGGER.info("Subscribed RegisteredEvent ==> {}",event.toString());

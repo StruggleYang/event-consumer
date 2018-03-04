@@ -7,13 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--参数配置-->
-    <context:property-placeholder location="classpath:config.properties" local-override="false"
-                                  system-properties-mode="ENVIRONMENT"/>
-
     <context:component-scan base-package="com.today"/>
 
-    <bean id="postProcessor" class="com.today.eventbus.MsgAnnotationBeanPostProcessor"/>
+    <bean id="postProcessor" class="com.today.eventbus.spring.MsgAnnotationBeanPostProcessor"/>
 
     <bean id="consumer" class="com.today.event.consumer.EventConsumer"/>
 

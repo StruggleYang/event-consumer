@@ -1,1 +1,1 @@
-## 事件总线订阅者demo
+## dapeng事件总线订阅者demo(maven)

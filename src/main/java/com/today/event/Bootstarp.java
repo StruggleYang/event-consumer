@@ -17,11 +17,11 @@ public class Bootstarp {
 
     public static void main(String[] args) throws IOException {
 
-        System.setProperty("soa.kafka.host","10.10.10.38:9092");
+        System.setProperty("kafka.consumer.host","127.0.0.1:9092");
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "classpath:springContext.xml" });
         context.start();
         LOGGER.info("Spring服务启动成功!");
-        System.in.read(); // 模拟运行
+        System.in.read();
     }
 }
